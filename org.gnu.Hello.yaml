@@ -1,0 +1,21 @@
+# yaml file defining package
+
+id: org.gnu.Hello
+
+# define the platform required for the application to run and build
+runtime: org.freedesktop.Platform
+runtime-version: '18.08'
+sdk: org.freedesktop.Sdk
+
+# command provided by application
+command: hello 
+
+modules:
+  - name: hello # package name
+    buildsystem: autotools  # how flatpak must build the system
+    no-autogen: true  # do not run the setup commands for autotools
+    sources:
+      - type: archive # tells flatpak the source code is an archive
+        url: https://ftp.gnu.org/gnu/hello/hello-2.0.tar.gz  # path to source code
+
+
